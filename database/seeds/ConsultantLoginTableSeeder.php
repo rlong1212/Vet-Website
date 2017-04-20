@@ -12,8 +12,24 @@ class ConsultantLoginTableSeeder extends Seeder
     public function run()
     {
         DB::table('consultants')->insert([
-        	'username' => 'con12',
-        	'password' => bcrypt('password'),
-        	]);
+            'username' => 'Ahmed_Adoudi',
+            'password' => bcrypt('ahmedadoudipass'),
+            ]);   
+        DB::table('consultants')->insert([
+            'username' => 'John_Smith',
+            'password' => bcrypt('johnsmithpass'),
+            ]);
+        DB::table('consultants')->insert([
+            'username' => 'Jeffrey_Hill',
+            'password' => bcrypt('jeffreyhillpass'),
+            ]);
+        DB::table('consultants')->insert([
+            'username' => 'Al_Coholic',
+            'password' => bcrypt('alcololicpass'),
+            ]);
+        DB::table('consultants')->insert([
+            'username' => 'Hugh_Jass',
+            'password' => bcrypt('hughjasspass'),
+            ]);
     }
 }

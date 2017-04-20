@@ -66,9 +66,12 @@ class AppointmentController extends Controller
         else
         {
             /*if no error was encountered, add to table*/
+
+            $keeperID = Auth::user()->id;
+
             $appointment = new Appointment;
             $appointment->animalID = Input::get('animalID');
-            $appointment->keeperID = Input::get('keeperID');
+            $appointment->keeperID = Input::get($keeperID);
             $appointment->consultantID = Input::get('consultantID');
             $appointment->appointmentType = Input::get('appointmentType');
             $appointment->time = Input::get('time');

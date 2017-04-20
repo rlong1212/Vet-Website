@@ -9,20 +9,40 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row"> 
     <!-- used https://www.youtube.com/watch?v=El4yziFuygQ tutorial for help on creating forms, adapted by creating different elements -->
     	<div class="col-md-8 col-md-offset-2">
             <hr>
     			{!! Form::open(array('route' => 'appointments.store')) !!} 
                 
-    				{{ Form::label('animalID', 'Animal ID:') }}
+                    {{ Form::label('keeperID', 'Keeper ID:') }}
+                    {{ Form::text('keeperID', Auth::user()->id, ['readonly']) }}
+                    
+                    <hr>
+    				{{ Form::label('animalID', 'Animal:') }}
+                    <?php 
+                    $animal = App\animal::all();
+                    ?>
+                    <select>
+                    @foreach($animal as $ani)
+                    <option value="{{ $ani->id }}">{{ $ani->id }} <!--| {{ $ani->name }}, {{ $ani->type }}, {{ $ani->age }}--></option>
+                    @endforeach
+                    </select>
+
     				<hr>
-    				{{ Form::label('keeperID', 'Keeper ID:') }}
-    				<hr>
-    				{{ Form::label('consultantID', 'Consultant ID:') }}
-    				<hr>
+    				{{ Form::label('consultantID', 'Consultant: ') }}
+                    <?php 
+                    $consultant = App\consultantModel::all();
+                    ?>
+                    <select>
+                    @foreach($consultant as $con)
+                    <option value="{{ $con->id }}">{{ $con->id }}<!-- | {{ $con->username }}--></option>
+                    @endforeach
+                    </select>
+                    
+                    <hr>
     				{{ Form::label('appointmentType', 'Appointment Type:') }}
-    				{{ Form::textarea('appointmentType', 'Brief description of appointment type', array('class' => 'form-control')) }}
+    				{{ Form::textarea('appointmentType', '', array('class' => 'form-control', 'placeholder' => 'Brief description of appointment type')) }}
     				<hr>
     				{{ Form::label('date', 'Date:') }}
     				{{ Form::text('date', 'Choose a date', array('id' => 'datepicker')) }}
@@ -33,7 +53,7 @@
     				{{ Form::submit('Book Appointment', array('class' => 'btn btn-success btn-block', 'style' => 'margin-bottom: 20px;')) }}
 
                 {!! Form::close() !!}
-            ?>    		
+              		
     	</div>
     </div>
 </div>

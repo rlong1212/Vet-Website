@@ -14,8 +14,11 @@ class conController extends Controller
     public function index()
     {
         $consultant = App\consultantModel::all();
-        return view::make('consultantrecord')
+        return view::make('consultantrecord') 
         ->with('consultants.show', $consultant);
+
+        $ids = DB::table('consultants')->get();
+        return view('booknewappointment.index', ['consultants' => $ids]);
     }
 
     /**
@@ -50,6 +53,10 @@ class conController extends Controller
         $consultant = App\consultantModel::all();
         return view::make('consultantrecord')
         ->with('consultants.show', $consultant);
+
+        $consultant = App\consultantModel::lists('id');
+        return view::make('booknewappointment.store')->with('consultants', $consultant);
+
     }
 
     /**

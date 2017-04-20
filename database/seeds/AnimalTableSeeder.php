@@ -12,14 +12,29 @@ class AnimalTableSeeder extends Seeder
     public function run()
     {
         DB::table('animals')->insert([
-        	'name' => 'jess',
+        	'name' => 'Jess',
         	'type' => 'gorilla',
         	'age' => '14',
         	]);
         DB::table('animals')->insert([
-        	'name' => 'bob',
+        	'name' => 'Scar',
         	'type' => 'lion',
-        	'age' => '5',
+        	'age' => '13',
         	]);
+        DB::table('animals')->insert([
+            'name' => 'Clucky',
+            'type' => 'chicken',
+            'age' => '1',
+            ]);
+        DB::table('animals')->insert([
+            'name' => 'Fluffy',
+            'type' => 'crocodile',
+            'age' => '4',
+            ]);
+        DB::table('animals')->insert([
+            'name' => 'Simba',
+            'type' => 'lion',
+            'age' => '9',
+            ]);
     }
 }
