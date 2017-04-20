@@ -8,11 +8,9 @@
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-<<<<<<< HEAD
-        "swiftmailer/swiftmailer": "^5.4"
-=======
+
+        "swiftmailer/swiftmailer": "^5.4",
         "laravelcollective/html": "^5.4"
->>>>>>> origin/master
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

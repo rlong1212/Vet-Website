@@ -26,12 +26,8 @@
                 </div>
             </div>                            
             </div>
-<<<<<<< HEAD
 </body>
-@stop
-=======
         </div>
     </div>
 </div>
 @endsection
->>>>>>> origin/master

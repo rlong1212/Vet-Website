@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AnimalController extends Controller
+class conController extends Controller
 {
     /**
-     * Display a listing of the resource. 
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $animal = App\animal::all();
-        return view::make('animalrecords')
-        ->with('animals.show', $animal);
+        $consultant = App\consultantModel::all();
+        return view::make('consultantrecord')
+        ->with('consultants.show', $consultant);
     }
 
     /**
@@ -39,7 +39,7 @@ class AnimalController extends Controller
         //
     }
 
-    /** 
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -47,9 +47,9 @@ class AnimalController extends Controller
      */
     public function show($id)
     {
-        $animal = App\animal::all();
-        return view::make('animalrecords')
-        ->with('animals.show', $animal);
+        $consultant = App\consultantModel::all();
+        return view::make('consultantrecord')
+        ->with('consultants.show', $consultant);
     }
 
     /**

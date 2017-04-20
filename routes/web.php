@@ -37,6 +37,7 @@ Route::get('contact', function() {
 Route::resource('animals', 'AnimalController');
 /*Route to control the dashboards when working with the animals tabble*/
 Route::resource('appointments', 'AppointmentController');
+Route::resource('consultants', 'conController');
 
 
 /*Routes for authorised users (ones that require authentication)*/
