@@ -12,8 +12,9 @@
     <div class="row">
     <!-- used https://www.youtube.com/watch?v=El4yziFuygQ tutorial for help on creating forms, adapted by creating different elements -->
     	<div class="col-md-8 col-md-offset-2">
-    		<hr>
+            <hr>
     			{!! Form::open(array('route' => 'appointments.store')) !!} 
+                
     				{{ Form::label('animalID', 'Animal ID:') }}
     				<hr>
     				{{ Form::label('keeperID', 'Keeper ID:') }}
@@ -31,7 +32,8 @@
     				<hr>
     				{{ Form::submit('Book Appointment', array('class' => 'btn btn-success btn-block', 'style' => 'margin-bottom: 20px;')) }}
 
-                {!! Form::close() !!}    		
+                {!! Form::close() !!}
+            ?>    		
     	</div>
     </div>
 </div>
