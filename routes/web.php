@@ -33,27 +33,26 @@ Route::get('contact', function() {
 	
 });
 
-/*Route to control the dashboards when working with the animals tabble*/
-Route::resource('animals', 'AnimalController');
-/*Route to control the dashboards when working with the animals tabble*/
-Route::resource('appointments', 'AppointmentController');
-Route::resource('consultants', 'conController');
+
 
 
 /*Routes for authorised users (ones that require authentication)*/
 Auth::routes();
+
+/*Route to control the dashboards when working with the tables*/
+Route::resource('animals', 'AnimalController');
+Route::resource('appointments', 'AppointmentController');
+Route::resource('consultants', 'conController');
 
 /*using named routes for in future if urls need changed, it means 
 they don't need changed throughout the whole program*/
 
 /*Route for the keeper (user) to log in*/
 Route::get('/home', 'HomeController@index');
-
 /*Routes for the keeper (user)*/
 Route::get('/animalrecords', 'AnimalRecordsController@index');
 Route::get('/bookinghistory', 'BookingHistoryController@index');
 Route::get('/booknewappointment', 'BookNewAppointmentController@index');
-
 Route::get('/editcancelappointment', 'EditCancelAppointmentController@index');
 Route::get('/contact' ,'PageController@getContact');
 Route::post('/contact','PageController@postContact');

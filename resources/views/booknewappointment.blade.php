@@ -23,7 +23,7 @@
                     <?php 
                     $animal = App\animal::all();
                     ?>
-                    <select>
+                    <select name="animalID">
                     @foreach($animal as $ani)
                     <option value="{{ $ani->id }}">{{ $ani->id }} <!--| {{ $ani->name }}, {{ $ani->type }}, {{ $ani->age }}--></option>
                     @endforeach
@@ -34,7 +34,7 @@
                     <?php 
                     $consultant = App\consultantModel::all();
                     ?>
-                    <select>
+                    <select name="consultantID">
                     @foreach($consultant as $con)
                     <option value="{{ $con->id }}">{{ $con->id }}<!-- | {{ $con->username }}--></option>
                     @endforeach

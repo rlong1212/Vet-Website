@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
+use App\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\View;
+use App\Http\Controllers\Session;
 
-class AppointmentController extends Controller
+class AppointmentController extends Controller 
 {
     /**
      * Display a listing of the resource.
@@ -19,24 +23,20 @@ class AppointmentController extends Controller
         /*get appointments and load them into the view*/
         $appointment = App\Appointment::all();
         return view::make('bookinghistory')
-        ->with('appointments.show', $appointment);
-
-        $appointment = App\Appointment::all();
-        return view::make('editcancelappointment')
-        ->with('appointments.show', $appointment);
+        ->with('appointments.show', $appointment);        
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource. 
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
         /*shows book new appointment page*/
-        return view('booknewappointment.create');
+        return view('booknewappointment.create');    
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -45,33 +45,10 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        /*creating rules that mean all fields must be filled*/
-        $rules = array(
-            'animalID' => 'required',
-            'keeperID' => 'required',
-            'consultantID' => 'required',
-            'appointmentType' => 'required',
-            'time' => 'required',
-            'date' => 'required'
-            );
-        $validator = validator::make(Input::all(), $rules);
-
-        /*redirecting back if there are input errors*/
-        if($validator->fails()) 
-        {
-            return Redirect::to('booknewappointment')
-            ->withErrors($validator)
-            ->withInput(Input::all());
-        }
-        else
-        {
             /*if no error was encountered, add to table*/
-
-            $keeperID = Auth::user()->id;
-
             $appointment = new Appointment;
-            $appointment->animalID = Input::get('animalID');
-            $appointment->keeperID = Input::get($keeperID);
+            $appointment->animalID = Input::get('animalID'); 
+            $appointment->keeperID = Input::get('keeperID');
             $appointment->consultantID = Input::get('consultantID');
             $appointment->appointmentType = Input::get('appointmentType');
             $appointment->time = Input::get('time');
@@ -79,9 +56,8 @@ class AppointmentController extends Controller
             $appointment->save();
 
             /*message to tell user their appointment was successfully booked*/
-            Session::flash('message', 'Appointment booked!');
+            /*Session::flash('message', 'Appointment booked!');*/
             return Redirect::to('booknewappointment');
-        }
     }
 
     /**
@@ -92,13 +68,9 @@ class AppointmentController extends Controller
      */
     public function show($id)
     {
-        $appointment = App\Appointment::all();
-        return view::make('bookinghistory')
-        ->with('appointments.show', $appointment);
-
-        $appointment = App\Appointment::all();
-        return view::make('editcancelappointment')
-        ->with('appointments.show', $appointment);
+        $appointment = Appointment::find($id);
+        return view::make('viewapp')
+        ->with('appointments.view', $appointment);
     }
 
     /**
@@ -109,7 +81,7 @@ class AppointmentController extends Controller
      */
     public function edit($id)
     {
-        $appointment = App\Appointment::find($id);
+        $appointment = Appointment::find($id);
         return view::make('editapp')
         ->with('appointments.edit', $appointment);
     }
