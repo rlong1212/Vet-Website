@@ -70,7 +70,7 @@ class AppointmentController extends Controller
     {
         $appointment = Appointment::find($id);
         return view::make('viewapp')
-        ->with('appointments.view', $appointment);
+        ->with('appointments.show', $appointment);
     }
 
     /**
