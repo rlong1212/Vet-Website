@@ -29,6 +29,7 @@
     </thead>
     <tbody>
     <?php 
+    
     $appointment = App\Appointment::all();
     ?>
     @foreach($appointment as $app)

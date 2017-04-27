@@ -53,7 +53,6 @@ Route::get('/home', 'HomeController@index');
 Route::get('/animalrecords', 'AnimalRecordsController@index');
 Route::get('/bookinghistory', 'BookingHistoryController@index');
 Route::get('/booknewappointment', 'BookNewAppointmentController@index');
-Route::get('/editcancelappointment', 'EditCancelAppointmentController@index');
 Route::get('/contact' ,'PageController@getContact');
 Route::post('/contact','PageController@postContact');
 
