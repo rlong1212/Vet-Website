@@ -40,11 +40,7 @@ class Consultant extends Authenticatable
         protected $table = 'consultations';
     }
     
-    <div class="links">
-                    <a href="https://laravel.com/docs">View Animal Records</a>
-                    <a href="https://laravel-news.com">View Appointments</a>
-                    <a href="https://forge.laravel.com">Edit/Cancel Appointment</a>
-                </div>
+    
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
