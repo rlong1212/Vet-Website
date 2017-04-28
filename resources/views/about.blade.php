@@ -43,7 +43,7 @@
                 </div>
 
                 <div>
-                    Information about the website to go here...
+                    Management system for consultants, managers, and keepers of our zoo.
                 </div>
             </div>
         </div>
